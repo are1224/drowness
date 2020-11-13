@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html>
+{% load static %}
+	<head>
+		<title>HAJAGO</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel='icon' href="{% static 'images/chapsal.ico'%}"/>
+		<link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
+		<noscript><link rel="stylesheet" href= "{% static 'assets/css/noscript.css' %}" /></noscript>
+	</head>
+	<body class="is-preload">	
+		<!-- Wrapper-->
+			<div id="wrapper">
+				{% if user.is_authenticated %}
+					<nav id="nav1">
+						<a href="{% url 'logout' %}">logout > </a>
+					</nav>
+					<br/>
+					<h3>{{user.get_username}} 님 안녕하세요</h3>
+					<br/>
+					<br/>
+				{% else %}
+					<nav id="nav1">
+						<a href="{% url 'signup' %}"> | SIGNUP&nbsp;</a>
+						<a href="{% url 'login' %}">LOGIN&nbsp;</a>
+					</nav>
+				{% endif %}
+		
+				
+				<!-- Nav -->
+					<nav id="nav">
+						<a href="#" class="icon solid fa-home"><span>HOME</span></a>
+						<a href="{% url 'about' %}" class="icon solid fas fa-question"><span>ABOUT</span></a>
+					</nav>
+				<!-- Main -->
+					<div id="main">
+						<!-- Me -->
+							<article id="home" class="panel intro">
+								<header>
+									<div class ="title_container">
+										<div class="title">
+											<div class="title_1">하</div>
+											<div class="title_2">루종일 잠을</div>
+										</div>
+										<div class="title">									
+											<div class="title_1">자</div>
+											<div class="title_2">는건</div>
+										</div>
+										<div class="title">
+											<div class="title_1">고</div>
+											<div class="title_2">양이밖에 없어</div>
+										</div>
+										<div class=title>
+											<p>당신의 졸음을 깨워줄 알람서비스</p>
+										</div>
+									</div>
+									
+								</header>
+								<a href="{% url 'about' %}" class="jumplink pic">
+									<span class="arrow icon solid fa-chevron-right"><span>About Out Service</span></span>
+									<img src="{% static 'images/cat6.gif' %}" alt="cat" />
+								</a>
+							</article>
+						
+					</div>
+
+				<!-- Footer -->
+					<div id="footer">
+						<ul class="copyright">
+							<li>by 장화신은 고양이</li>
+						</ul>
+					</div>
+			</div>
+
+			<!-- Scripts -->
+			<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+			<script src="{% static 'assets/js/browser.min.js' %}"></script>
+			<script src="{% static 'assets/js/breakpoints.min.js' %}"></script>
+			<script src="{% static 'assets/js/util.js' %}"></script>
+			<script src="{% static 'assets/js/main.js' %}"></script>
+
+	</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='icon' href="{% static 'images/chapsal.ico'%}"/>
+    <link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
+	<noscript><link rel="stylesheet" href= "{% static 'assets/css/noscript.css' %}" /></noscript>
+    <title>HAJAGO</title>
+</head>
+<body class="is-preload">
+    <!-- Wrapper-->
+        <div id="wrapper">
+			<nav id="nav1">
+				<a href="{% url 'signup' %}"> | SIGNUP&nbsp;</a>
+				<a href="{% url 'login' %}">LOGIN&nbsp;</a>
+			</nav>
+            <!-- Nav -->
+			<nav id="nav">
+				<a href="{% url 'home' %}" class="icon solid fa-home"><span>HOME</span></a>
+				<a href="{% url 'about' %}" class="icon solid fas fa-question"><span>ABOUT</span></a>
+			</nav>
+
+            <!-- Main -->
+                <div id="main">
+                    <!-- Contact -->
+                        <article id="LOGIN" class="panel">
+                            <header>
+                                <h2>TEXT to SPEECH</h2>
+                            </header>
+                            <form action="{% url 'tts' user_pk%}" method="POST">
+                            {% csrf_token %}
+                                <div>
+                                    <div class="row">
+                                        <div class="col-12">
+											알람으로 듣고 싶은 말을 적어주세요:)
+											<input type="text" name="text" placeholder="ex) 길동아~ 세수하고오자" />
+                                        </div>
+                                        <div class="col-12">
+                                            <button type="submit">ENTER</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </article>
+
+                </div>
+
+            <!-- Footer -->
+                <div id="footer">
+                    <ul class="copyright">
+                        <li>by 장화신은 고양이</li>
+                    </ul>
+                </div>
+
+        </div>
+
+        <!-- Scripts -->
+        <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+		<script src="{% static 'assets/js/browser.min.js' %}"></script>
+		<script src="{% static 'assets/js/breakpoints.min.js' %}"></script>
+		<script src="{% static 'assets/js/util.js' %}"></script>
+		<script src="{% static 'assets/js/main.js' %}"></script>
+    
+</body>
+</html>

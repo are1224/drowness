@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
+	<noscript><link rel="stylesheet" href= "{% static 'assets/css/noscript.css' %}" /></noscript>
+    <title>Drowsiness</title>
+</head>
+<body class="is-preload">
+
+    {% if user.is_authenticated %}
+        <nav id="nav1">
+            <a href="{% url 'logout' %}">logout > </a>
+        </nav>
+        
+    {% else %}
+        <nav id="nav1">
+            <a href="{% url 'signup' %}"> | SIGNUP&nbsp;</a>
+            <a href="{% url 'login' %}">LOGIN&nbsp;</a>
+        </nav>
+    {% endif %}
+
+    <!-- Wrapper-->
+        <div id="wrapper">
+
+            <!-- Nav -->
+            <nav id="nav">
+                    <a href="{% url 'home' %}" class="icon solid fa-home"><span>HOME</span></a>
+                    <a href="#" class="icon solid fas fa-question"><span>ABOUT</span></a>
+            </nav>
+
+            <!-- Main -->
+                <div id="main">
+
+                    <!-- Work -->
+                        <article id="ABOUT" class="panel">
+                            <header>
+                                <h2>WHAT IS &nbsp;하자고</h2>
+                            </header>
+                            <p>
+                                &nbsp;&nbsp;&nbsp;하자고는 하루종일 잠을 자는것은 고양이밖에 없어의 줄임말로, 
+                                온라인 수업, 업무 중 사용자의 졸음을 인식하여 업무의 효율을 높일 수 있도록 도와드리는 서비스입니다.<br> 
+                                사용자가 지정한 문장을 알람으로 울리게 하여 사용자가 재미를 느낄 수 있도록 설계하였습니다.
+                            </p>                      
+                            <p>
+                                &nbsp;&nbsp;&nbsp;하자고 서비스는 사용자가 회원가입을 할때, 사용자 눈에 대한 정보를 얻기 위한 과정을 거칩니다.
+                                카메라를 응시하고 소리가 날때까지 눈을 감았다 떴다를 반복합니다. 이는 개개인의 눈에 맞춰 졸음에 대한 정확도를
+                                높이기 위한 과정입니다.
+                            </p>
+                            <p>
+                                &nbsp;&nbsp;&nbsp;사용자가 로그인을 한 후, text를 입력할 수 있는 창이 나타나는데, 이 부분에 본인이 듣고 싶은 문장을 적게됩니다.
+                            </p>
+                            <p>
+                                &nbsp;&nbsp;&nbsp;위의 과정들을 마쳤다면, 하자고 서비스를 이용할 수 있게 됩니다. 
+                            </p>
+                        </article>
+
+                </div>
+
+            <!-- Footer -->
+                <div id="footer">
+                    <ul class="copyright">
+                        <li>by 장화신은 고양이</li>
+                    </ul>
+                </div>
+
+        </div>
+
+        <!-- Scripts -->
+        <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+		<script src="{% static 'assets/js/browser.min.js' %}"></script>
+		<script src="{% static 'assets/js/breakpoints.min.js' %}"></script>
+		<script src="{% static 'assets/js/util.js' %}"></script>
+		<script src="{% static 'assets/js/main.js' %}"></script>
+
+</body>
+</html>

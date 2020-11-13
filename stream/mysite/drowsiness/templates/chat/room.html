@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% load static %}
+        <meta charset="utf-8"/>
+        <title>HAJAGO</title>
+        <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <link rel='icon' href="{% static 'images/chapsal.ico'%}"/>
+        <link href="{% static '/assets/css/room_style.css' %}" type="text/css" rel="stylesheet" />
+    </head>
+    <body>
+        <div class='container'>
+            <div class='screen'>
+                <img id='web_cam' class='item' src="{% static '/images/cat.gif' %}" alt='대신 이미지'>
+                <p id='path' style='display: none;'>{{user.streamer.tts.text}}</p>
+                <p id='user_pk' style='display: none;'>{{user.pk}}</p>
+                <div class='controller'>
+                    <div id='clock'></div>
+                    <div class='button_set'>
+                        <div class='wrap'>
+                            <button id='alarm' class=button>alarm</button>
+                            <button id='start' class='button'>start</button>
+                            <button id='stop' class='button'>stop</button>
+                            <button id='logout' class='button'>logout</button>
+                        </div>
+                    </div>
+                    <div id='divClock'></div>
+                </div>
+            </div>
+        </div>
+        <div class='back' class='item'></div>
+        
+        <!-- Scripts -->
+        <script type='text/javascript' src="{% static 'assets/js/streaming_controller.js' %}"></script>
+        <script type='text/javascript'>
+            $(document).ready(function(){
+
+                sdate = new Date()
+                printClock(sdate);
+                let roomName = '{{room_name|escapejs}}';
+                let check = false;
+
+                let chatSocket = true;
+
+                let path = document.querySelector('#path').innerText;
+                let pk = document.querySelector('#user_pk').innerText;
+
+                $('#stop').bind('click', (e) => {
+                    if(check){
+                        check = false;
+                        
+                        chatSocket.send(JSON.stringify({
+                            'message': 'stop'
+                        }));
+                        chatSocket.close();
+
+                        setTimeout(function() {
+                            document.querySelector('#web_cam').src = "{% static '/images/wel.jpg' %}";
+                        }, 10);
+                    }
+                });
+
+                $('#start').bind('click', (e) => {
+                    
+                    
+                    $.ajax({
+                        url:'{% url "get_tts_url" %}',
+                        type:"POST",
+                        data:{'pk':pk, 'csrfmiddlewaretoken': '{{ csrf_token }}'},
+                        dataType : "json",
+                        success: function(result) {
+                            if (result) {
+                                // console.log(result.tts_url);
+
+                                if (!check){
+                                    check = true;
+
+                                    setTimeout(function() {
+                                        chatSocket.send(JSON.stringify({
+                                            'message': result.tts_url
+                                        }));
+                                    }, 700);
+
+                                    chatSocket = new WebSocket(
+                                        'ws://'+window.location.host+'/ws/stream/'+roomName+'/'
+                                    );
+
+                                    chatSocket.onmessage = (e) => {
+                                        
+                                        var reader = new FileReader();
+                                        let data = e.data;
+                                        reader.onload = function(event) {
+                                            document.querySelector('#web_cam').src = reader.result;
+                                        };
+                                        reader.readAsDataURL(data);
+                                        
+                                    };
+
+                                }
+                                
+                            } else {
+                                alert("불러오기 실패");
+                            }
+                        }
+                    });
+
+
+                    
+                });
+
+               
+                $('#alarm').bind('click', (e)=>{
+                    window.open('{% url "alarm" user.pk %}',  "alarm window", "width=800, height=700, toolbar=no, menubar=no, scrollbars=no, resizable=yes");
+                });
+
+                $('#logout').bind('click', (e)=>{
+
+                    if(check){
+                        check = false;
+                        
+                        chatSocket.send(JSON.stringify({
+                            'message': 'stop'
+                        }));
+                        chatSocket.close();
+
+                        setTimeout(function() {
+                            document.querySelector('#web_cam').src = "{% static '/images/wel.jpg' %}";
+                        }, 10);
+                    }
+
+                    location.href = '/logout';
+
+                });
+
+                chatSocket.onclose = (e) => {
+                    chatSocket.close();
+                    console.error('Chat socket closed unexpectedly');
+                };
+                
+            });
+
+        </script>
+    </body>
+</html>

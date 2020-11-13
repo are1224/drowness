@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <meta charset="utf-8"/>
+    <title>HAJAGO</title>
+    <link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
+    <link rel='icon' href="{% static 'images/chapsal.ico'%}"/>
+	<noscript><link rel="stylesheet" href= "{% static 'assets/css/noscript.css' %}" /></noscript>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="main">
+            <article id="ABOUT" class="panel intro">
+                <header>
+                    <h2> TEXTtoSPEECH</h2>
+                    <hr/>
+                <header>
+                <p id='path' style='display: none;'>{{results.text}}</p>
+                <script type="text/javascript"> 
+                    
+                    var audio = new Audio();
+                    
+                    audio.src = '../' + document.querySelector('#path').innerText
+                    
+                </script>
+                    <div class="alarm_button">
+                        <i class="fas fa-check"><b> 현재 알람을 들어보시겠습니까? &nbsp;&nbsp;&nbsp;</b></i>
+                        <br/>
+                        <button type="submit" onClick="audio.play();" value="PLAY">PLAY</button> 
+                        <button type="submit" onClick="audio.pause();" value="PAUSE">PAUSE</button> 
+                    
+                    </div>
+                
+                   
+                    <!-- <input type="button" onClick="audio.play();" value="PLAY"/>
+                        <input type="button" onClick="audio.pause();" value="PAUSE"/>
+                    -->
+                
+                <!-- <input type="number" onChange="audio.volume=this.value"/> -->
+                <br/>
+                <br/>
+                <form action="{% url 'change_tts' user.pk %}" method="POST">
+                {% csrf_token %}
+                    <div>
+                        <div class="row">
+                            <div class="col-12">
+                                <i class="fas fa-check"><b> 새로운 알람으로 듣고 싶은 말을 적어주세요:) </b></i>
+                                <input type="text" name="text" placeholder="ex) 길동아~ 세수하고오자" />
+                            </div>
+                            <div class="col-12">
+                                <button type="submit">ENTER</button>
+                            </div>
+                            <br/>
+                        </div>
+                    </div>
+                </form>
+            </article>
+        </div>
+    </div>
+
+
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/js/browser.min.js' %}"></script>
+    <script src="{% static 'assets/js/breakpoints.min.js' %}"></script>
+    <script src="{% static 'assets/js/util.js' %}"></script>
+    <script src="{% static 'assets/js/main.js' %}"></script>
+
+</body>
+</html>

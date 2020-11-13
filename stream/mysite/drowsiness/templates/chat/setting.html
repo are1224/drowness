@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Chat Rooms</title>
+</head>
+<body>
+    What chat room would you like to enter?<br/>
+    <form action="{% url 'setting' %}" method='post'>{% csrf_token %}
+        <input id="sound-content-input" type="text" size="100" name='sound-content-input'/><br/>
+        <input id="sound-content-submit" type="submit" value="Enter"/>
+    </form>
+    <script>
+        document.querySelector("#sound-content-input").focus();
+        document.querySelector("#sound-content-input").addEventListener("keyup",(e) => {
+            if(e.keyCode === 13){
+                document.querySelector("#sound-content-submit").click();
+            }
+        });
+
+        // document.querySelector("#room-name-submit").addEventListener("click",(e) => {
+        //     let roomName = document.querySelector("#room-name-input").value;
+        //     window.location.pathname = `/chat/${roomName}/`;
+        // });
+    </script>
+</body>
+</html>
