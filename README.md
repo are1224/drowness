@@ -32,3 +32,11 @@
                  
 6. tts 설정 페이지   
 <img src="/hajago/하자고6.png" width="80%" height="25%" title="하자고 홈페이지 이미지" alt="tts 설정 화면"></img>
+
+### 5. 참고 자료
++ Opencv 기반 졸음감지 : https://github.com/mohitwildbeast/Driver-Drowsiness-Detector
++ dlib 라이브러리: http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2
++ Openpose: https://github.com/CMU-Perceptual-Computing-Lab/openpose
++ kakao developer: https://developers.kakao.com/docs/latest/ko/voice/rest-api
++ Tensorflow를 이용한 TTS: https://github.com/TensorSpeech/TensorflowTTS
++ 딥러닝을 이용한 TTS: https://blog.crux.cx/iu-siri-1/
