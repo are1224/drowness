@@ -16,4 +16,4 @@
 
 ### 4. 이미지
 1. 홈화면
-![Alt text](/hajago/하자고 1.g "Optional title")
+![Alt text](/drowness/hajago/하자고 1.g "Optional title")
