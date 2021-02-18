@@ -15,15 +15,15 @@
 + 2020.09.10~2020.09.23/ 팀 프로젝트(4인)
 
 ### 4. 이미지
-1. 홈 화면 페이지
+1. 홈 화면 페이지    
 <img src="/hajago/하자고1.png" width="80%" height="50%" title="하자고 홈페이지 이미지" alt="홈화면"></img>   
-2. 하자고 설명 페이지
+2. 하자고 설명 페이지    
 <img src="/hajago/하자고2.png" width="80%" height="50%" title="하자고 홈페이지 이미지" alt="설명 화면"></img>
-3. 로그인 페이지
+3. 로그인 페이지    
 <img src="/hajago/하자고3.png" width="80%" height="50%" title="하자고 홈페이지 이미지" alt="로그인 화면"></img>   
-4. 회원가입 페이지
+4. 회원가입 페이지    
 <img src="/hajago/하자고4.png" width="80%" height="50%" title="하자고 홈페이지 이미지" alt="회원가입 화면"></img>
-5. 서비스 화면 페이지
+5. 서비스 화면 페이지    
 <img src="/hajago/하자고5.png" width="80%" height="50%" title="하자고 홈페이지 이미지" alt="서비스 화면"></img>   
-6. tts 설정 페이지
+6. tts 설정 페이지   
 <img src="/hajago/하자고6.png" width="80%" height="50%" title="하자고 홈페이지 이미지" alt="tts 설정 화면"></img>
