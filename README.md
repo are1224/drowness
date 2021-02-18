@@ -7,3 +7,7 @@
 + Front-end : html,css,javascript
 + Back-end : Django(python)
 
+### 2. 주요 특징
++ Opencv를이용해구현한 졸음감지
++ Kakao tts를 사용한졸음 감지시알림
+
