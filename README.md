@@ -14,3 +14,8 @@
 ### 3. 프로젝트 기간 
 + 2020.09.10~2020.09.23/ 팀 프로젝트(4인)
 
+### 4. 이미지
+1. 홈화면    
+<img src="/hajago/하자고 1.png" width="80%" height="50%" title="하자고 홈페이지 이미지" alt="홈화면"></img>   
+2. 홈화면    
+<img src="/hajago/하자고 1.png" width="80%" height="50%" title="하자고 홈페이지 이미지" alt="RubberDuck"></img>
