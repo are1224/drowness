@@ -16,4 +16,6 @@
 
 ### 4. 이미지
 1. 홈화면    
-<img src="/hajago/하자고 1.png" width="80%" height="50%" title="px(픽셀) 크기 설정" alt="RubberDuck"></img>
+<img src="/hajago/하자고 1.png" width="80%" height="50%" title="하자고 홈페이지 이미지" alt="홈화면"></img>   
+2. 홈화면    
+<img src="/hajago/하자고 1.png" width="80%" height="50%" title="하자고 홈페이지 이미지" alt="RubberDuck"></img>
